@@ -9,3 +9,20 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+
+#提交的时候不需要带的垃圾文件
+# 1. 任何目录下的MVNW文件
+**/mvnw
+**/mvnw.cmd
+
+# 2. 么个项目里的mvn文件
+**/.mvn
+
+# 3. target目录下的文件
+**/target/
+
+# 4.idea目录
+.idea
+
+#5. gitingore文件
+**/.gitignore
