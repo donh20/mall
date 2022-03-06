@@ -24,6 +24,7 @@ class GulimallProductApplicationTests {
 //        brandService.save(brandEntity);
 //        System.out.println("保存成功");
 //        brandService.updateById(brandEntity);
+
         List<BrandEntity> list = brandService.list(new QueryWrapper<BrandEntity>().eq("brand_id", 1L));
         list.forEach((item) -> {
             System.out.println(item);
