@@ -25,8 +25,7 @@ spring:
           predicates:
             - Path=/api/**
           filters:
-            - RewritePath=/api(?<segment>/?.*), /renren-fast/$\{segment}
+            - RewritePath=/api/(?<segment>.*), /renren-fast/$\{segment}
 
 ##注意是 filters!!! 3.0以后的cloud配置是：filters:  - RewritePath=/api/?(?<segment>.*), /renren-fast/$\{segment}
 ##http://localhost:88/api/captcha.jpg http://localhost:8080/renren-fast/captcha.jpg
-
