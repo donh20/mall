@@ -29,6 +29,13 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>.*), /$\{segment} #将api/product开头的请求拿掉api
 
+        - id: third_party_route
+          uri: lb://gulimall-third-party
+          predicates:
+            - Path=/api/thirdparty/**  #匹配api/thirdparty开头的请求
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*), /$\{segment} #将/api/thirdparty开头的请求拿掉/api/thirdparty/
+
         - id: admin_route
           uri: lb://renren-fast
           predicates:
