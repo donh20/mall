@@ -6,6 +6,7 @@ import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.common.utils.BinaryUtil;
 import com.aliyun.oss.model.MatchMode;
 import com.aliyun.oss.model.PolicyConditions;
+import com.atguigu.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,9 +41,7 @@ public class OssController {
     private String accessId;
 
     @RequestMapping("/oss/policy")
-    public Map<String, String> policy(){
-        //https://gulimall-haodong.oss-cn-beijing.aliyuncs.com/20220514.jpg?Expires=1652517474&OSSAccessKeyId=TMP.3KddThAqULPmBX5nevnw6tgCjNacBqh2fanUozfnXnf5Vs1MaZAisxDGhXENjd3rauc4X6P17dyjqw5Bx7oDMqNfkvUWRN&Signature=8szHgWsWIySb7jbucmK%2BZ%2BQ16Yg%3D
-
+    public R policy(){
         // 填写Host地址，格式为https://bucketname.endpoint。
         String host = "https://"+bucket+"."+endpoint;
         // 设置上传回调URL，即回调服务器地址，用于处理应用服务器与OSS之间的通信。OSS会在文件上传完成后，把文件上传信息通过此回调URL发送给应用服务器。
@@ -78,6 +77,6 @@ public class OssController {
             // Assert.fail(e.getMessage());
             System.out.println(e.getMessage());
         }
-        return respMap;
+        return R.ok().put("data", respMap);
     }
 }
