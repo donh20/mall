@@ -13,7 +13,6 @@ package com.atguigu.common.validator.group;
  *
  * @author Mark sunlightcs@gmail.com
  */
-
 public interface UpdateGroup {
 
 }
